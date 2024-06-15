@@ -61,10 +61,10 @@ class Weather extends Component {
         const {pincode}=this.state 
         const pincode1=parseInt(pincode)
         
-        if(isNaN(pincode) === true){
+        if(isNaN(pincode) === true){   //If it is not a number
         this.setState({currentCity:pincode,pincode:"",currentLocationPincode:""})
         }
-        else{
+        else{   //If it is a number
             this.setState({currentLocationPincode:pincode1,pincode:"",currentCity:""})
         }
     }
