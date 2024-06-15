@@ -13,8 +13,9 @@ class Weather extends Component {
     
     
     getWeatherData=async() => {
-        const {currentLocationPincode,currentCountry,currentCity:""}=this.state
+        const {currentLocationPincode,currentCountry,currentCity}=this.state
         const url=currentCity.length === 0 ?`https://api.openweathermap.org/data/2.5/weather?zip=${currentLocationPincode},${currentCountry}&APPID=145fe4391407966c3f4b8e0ca5e35c5e`:`https://api.openweathermap.org/data/2.5/weather?q=${currentCity},${currentCountry}&APPID=145fe4391407966c3f4b8e0ca5e35c5e`
+        
         const options={
             method:"GET"   //We have to retrive the data we have to use GET Method.
         } 
@@ -40,7 +41,8 @@ class Weather extends Component {
             const presentHours=presentDate.getHours() < 10 ? `0${presentDate.getHours()}`:`${presentDate.getHours()}`
             const presentMinutes=presentDate.getMinutes() < 10 ? `0${presentDate.getMinutes()}`:`${presentDate.getMinutes()}`
             this.setState({currentWeatherData:weatherData,currentDay:result[0],currentDate:result[2],currentMonth:result[1],currentYear:result[3],currentTime:`${presentHours}:${presentMinutes}`,currentLocation:name,errorMessage:""}) 
-        }  
+        }
+
         else{                          //If the Pincode is invalid
             const data=await response.json() 
             this.setState({errorMessage:data.message,currentWeatherData:{}})
@@ -61,15 +63,15 @@ class Weather extends Component {
         const {pincode}=this.state 
         const pincode1=parseInt(pincode)
         
-        if(isNaN(pincode) === true){   //If it is not a number
+        if(isNaN(pincode) === true){
         this.setState({currentCity:pincode,pincode:"",currentLocationPincode:""})
         }
-        else{   //If it is a number
+        else{
             this.setState({currentLocationPincode:pincode1,pincode:"",currentCity:""})
         }
     }
 
-    render(){ 
+    render(){  
         const {currentWeatherData,isDark,currentLocation,currentDay,currentDate,currentMonth,currentYear,currentTime,pincode,errorMessage}=this.state  
         
         if(errorMessage.length > 0){  //If the errorMessage is not empty
@@ -94,7 +96,7 @@ class Weather extends Component {
                 <h1 className={isDark?"color-white-styling":"color-black-styling"}>Today Weather</h1>
                 <button alt={isDark ? "white":"dark"} onClick={this.changingMode} className='button-styling'>{isDark ?<CiLight className='size-of-icon white-button-styling'/>:<MdDarkMode className='size-of-icon'/>}</button>
                 </div>
-                <input type="search" placeholder='Enter Any Pincode or City Name' className='margin-left-search-button' onChange={this.searchingPincode} value={pincode}/>
+                <input type="search" placeholder='Enter Any Pincode' className='margin-left-search-button' onChange={this.searchingPincode} value={pincode}/>
                 <button alt="search" className='size-of-search-icon' onClick={this.clickingSearchButton}><CiSearch/></button>
                 <div className='alignment-of-weather-data'>
                     <h1 className={isDark?"color-white-styling":"color-black-styling"}>{currentLocation}</h1> 
