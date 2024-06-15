@@ -4,7 +4,7 @@ import { CiLight,CiSearch } from "react-icons/ci";
 import './index.css'
 
 class Weather extends Component {
-    state={currentLocationPincode:"522659",currentWeatherData:{},currentLocation:"",currentCountry:"in",isDark:false,currentDay:"",currentDate:"",currentMonth:"",currentYear:"",currentTime:"",pincode:"",errorMessage:""}
+    state={currentLocationPincode:"522659",currentWeatherData:{},currentLocation:"",currentCountry:"in",isDark:false,currentDay:"",currentDate:"",currentMonth:"",currentYear:"",currentTime:"",pincode:"",errorMessage:"",currentCity:""}
 
     componentDidMount(){
         this.timerId=setInterval(this.getWeatherData,1000) //Using ComponentDidMount we can know the imformation of weather every second.
@@ -13,8 +13,8 @@ class Weather extends Component {
     
     
     getWeatherData=async() => {
-        const {currentLocationPincode,currentCountry}=this.state
-        const url=`https://api.openweathermap.org/data/2.5/weather?zip=${currentLocationPincode},${currentCountry}&APPID=145fe4391407966c3f4b8e0ca5e35c5e` 
+        const {currentLocationPincode,currentCountry,currentCity:""}=this.state
+        const url=currentCity.length === 0 ?`https://api.openweathermap.org/data/2.5/weather?zip=${currentLocationPincode},${currentCountry}&APPID=145fe4391407966c3f4b8e0ca5e35c5e`:`https://api.openweathermap.org/data/2.5/weather?q=${currentCity},${currentCountry}&APPID=145fe4391407966c3f4b8e0ca5e35c5e`
         const options={
             method:"GET"   //We have to retrive the data we have to use GET Method.
         } 
@@ -58,8 +58,15 @@ class Weather extends Component {
     } 
 
     clickingSearchButton=() => {              //Onclick on search button it will filter the location based on the input
-        const {pincode}=this.state
-        this.setState({currentLocationPincode:pincode,pincode:""})
+        const {pincode}=this.state 
+        const pincode1=parseInt(pincode)
+        
+        if(isNaN(pincode) === true){
+        this.setState({currentCity:pincode,pincode:"",currentLocationPincode:""})
+        }
+        else{
+            this.setState({currentLocationPincode:pincode1,pincode:"",currentCity:""})
+        }
     }
 
     render(){ 
@@ -87,7 +94,7 @@ class Weather extends Component {
                 <h1 className={isDark?"color-white-styling":"color-black-styling"}>Today Weather</h1>
                 <button alt={isDark ? "white":"dark"} onClick={this.changingMode} className='button-styling'>{isDark ?<CiLight className='size-of-icon white-button-styling'/>:<MdDarkMode className='size-of-icon'/>}</button>
                 </div>
-                <input type="search" placeholder='Enter Any Pincode' className='margin-left-search-button' onChange={this.searchingPincode} value={pincode}/>
+                <input type="search" placeholder='Enter Any Pincode or City Name' className='margin-left-search-button' onChange={this.searchingPincode} value={pincode}/>
                 <button alt="search" className='size-of-search-icon' onClick={this.clickingSearchButton}><CiSearch/></button>
                 <div className='alignment-of-weather-data'>
                     <h1 className={isDark?"color-white-styling":"color-black-styling"}>{currentLocation}</h1> 
