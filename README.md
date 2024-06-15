@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `Brief discussion of Project` 
+In this project we have to build weather app using technologies like html,css,javascript,react js.
+We can use openweatherapi website for data.
+It will contain current location,current time,current date. 
+And also we can use toogle option to background of the website.
+And Also Include Search Element search by location or by Pincode.
+      .If the location or pincode is valid then we can convert that response into JSOn format.
+      .If the location or pincode is invalid then we can send errorMessage to the user.
+We can Build app by various devices like laptop,tab,mobile,etc... . 

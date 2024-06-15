@@ -1,0 +1,201 @@
+@media (min-width:799px){
+.background-black {
+    background-color: black;
+    height: 100vh;
+} 
+
+.sizeOfthefont{
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.background-white {
+    background-color: white;
+    height: 100vh;
+} 
+
+.color-white-styling{
+    color: white;
+} 
+
+.color-black-styling{
+    color: black;
+}
+
+.flexing-of-heading-and-icon {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.size-of-icon {
+    width: 50px;
+    height: 30px;
+}
+
+.button-styling {
+    border: none;
+    background-color: transparent;
+}
+
+.white-button-styling {
+    color: white;
+}
+
+.margin-left-search-button {
+    margin-left: 600px;
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    border-style: solid; 
+    border-color: grey;
+}
+
+.alignment-of-weather-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+.clouds-size {
+    height: 100px;
+    width: 100px;
+}
+
+.flexing-image-and-temprature {
+    display: flex;
+   
+}
+
+.margin-left-of-temprature {
+    margin-left: 40px; 
+}
+
+.flexing-of-weather-items {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.margin-left-description {
+    margin-left: 30px;
+}
+
+.size-of-search-icon {
+    height: 38px;
+}
+
+.Not-Found-image {
+    height: 150px;
+    width: 150px;
+}
+
+.flexing-of-not-found-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+}
+
+@media (max-width:798px){
+    .background-black {
+        background-color: black;
+        height: 100vh;
+    } 
+    
+    .background-white {
+        background-color: white;
+        height: 100vh;
+    } 
+    
+    .color-white-styling{
+        color: white;
+    } 
+    
+    .color-black-styling{
+        color: black;
+    }
+    
+    .flexing-of-heading-and-icon {
+        display: flex; 
+        justify-content: space-between;
+    }
+    
+    .size-of-icon {
+        width: 50px;
+        height: 30px;
+    }
+    
+    .button-styling {
+        border: none;
+        background-color: transparent;
+    }
+    
+    .white-button-styling {
+        color: white;
+    }
+    
+    .margin-left-search-button {
+        margin-left: 100px;
+        width: 250px;
+        height: 40px;
+        border-radius: 10px;
+        border-style: solid; 
+        border-color: grey;
+    }
+    
+    .alignment-of-weather-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 20px;
+    }
+    
+    .clouds-size {
+        height: 100px;
+        width: 100px;
+    }
+    
+    .flexing-image-and-temprature {
+        display: flex;
+       
+    }
+    
+    .margin-left-of-temprature {
+        margin-left: 10px; 
+    } 
+
+    .sizeOfthefont {
+        font-size: 20px;
+        margin-top: 30px;
+    }
+    
+    .flexing-of-weather-items {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 40px;
+    }
+    
+    .margin-left-description {
+        margin-left: 30px;
+    }
+    
+    .size-of-search-icon {
+        height: 38px;
+    }
+    
+    .Not-Found-image {
+        height: 150px;
+        width: 150px;
+    }
+    
+    .flexing-of-not-found-image{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 200px;
+    }
+    }
